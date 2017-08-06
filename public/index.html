@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>Библиотека</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="less/bootstrap-div.css" type="text/css">
+	<link rel="stylesheet" href="less/bootstrap-responsive-div.css" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+
+</head>
+<body ng-app='library' ng-controller='myLibr'>
+	<div class="bootstrap">
+		<header>
+			<div class="logo"></div>
+			<h2><a href="/">Библиотека</a></h2>
+		</header>
+		<nav>
+			<ul>
+			<a href="#" ng-click="authorbookSS()"><li>книги-авторы</li></a>
+				<a href="#" ng-click="authorSS()"><li>авторы</li></a>
+				<a href="#" ng-click="bookSS()"><li>книги</li></a>
+			</ul>
+		</nav>
+		
+		<div id="main-section">
+			Добро пожаловать на сайт, на котором Вы сможете узнать  Добро пожаловать на сайт, на котором Вы сможете узнатьДобро пожаловать на сайт, на котором Вы сможете узнатьДобро пожаловать на сайт, на котором Вы сможете узнатьДобро пожаловать на сайт, на котором Вы сможете узнатьДобро пожаловать на сайт, на котором Вы сможете узнатьДобро пожаловать на сайт, на котором Вы сможете узнатьДобро пожаловать на сайт, на котором Вы сможете узнатьДобро пожаловать на сайт, на котором Вы сможете узнатьДобро пожаловать на сайт, на котором Вы сможете узнатьДобро пожаловать на сайт, на котором Вы сможете узнатьДобро пожаловать на сайт, на котором Вы сможете узнать
+		</div>
+		
+		<div id="author-section">
+			<button ng-click='decide2()' class="btn btn-info">Добавить автора</button>
+			<button ng-click='decide()' class="btn btn-info">Посмотреть авторов</button>
+
+			<section id="add-author-section">
+				<form method="POST" action="/api/authors" id="authors">
+					<div class="form-group">
+						<label for="_id">ID:</label>
+						<input type="text" name="_id" class="form-control" placeholder="Введите уникальный ID автора, например A341">
+					</div>
+					
+					<div class="form-group">
+						<label for="email">Email:</label>
+						<input type="text" id="email" name="email" placeholder="Введите Email, например ivanov1967@mail.ru" class="form-control">
+					</div>
+					
+					<div class="form-group">
+						<label for="firstName">Имя:</label>
+						<input type="text" id="firstName" name="firstName" class="form-control" placeholder="Введите имя автора, например Александр">
+					</div>
+					
+					<div class="form-group">
+						<label for="secondName">Фамилия:</label>
+						<input type="text" id="secondName" name="secondName" class="form-control" placeholder="Введите фамилию автора, например Иванов">
+					</div>
+					
+					
+					<div class="form-group">
+						<label for="birthDate">Год рождения:</label>
+						<input type="text" id="birthDate" name="birthDate" class="form-control" placeholder="Введите год рождения автора, например 1967">
+					</div>
+					
+					<input type="submit" value="Добавить" class="btn btn-success">
+				</form>
+			</section> 
+
+			<section id="view-author-section">
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th>ID</th>
+				      <th>E-mail</th>
+				      <th>Имя</th>
+				      <th>Фамилия</th>
+				      <th>Год рождения</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    
+				    <tr ng-repeat='author in authors'>
+				      <td>{{author._id}}</td>
+				      <td>{{author.email}}</td>
+				      <td>{{author.firstName}}</td>
+				      <td>{{author.secondName}}</td>
+				      <td>{{author.birthDate}}</td>
+				    </tr>
+				    
+				  </tbody>
+				</table>
+			</section>
+		</div>
+
+
+
+
+		<div id="book-section">
+			<button ng-click='decidebook2()' class="btn btn-info">Добавить книгу</button>
+			<button ng-click='decidebook()' class="btn btn-info">Посмотреть книги</button>
+
+			<section id="add-book-section">
+				<form method="POST" action="/api/books" id="books">
+					<div class="form-group">
+						<label for="_id">ID:</label>
+						<input type="text" name="_id" class="form-control" placeholder="Введите уникальный ID книги, например A341">
+					</div>
+					
+					<div class="form-group">
+						<label for="name">Название книги:</label>
+						<input type="text" id="name" name="name" placeholder="Введите название книги" class="form-control">
+					</div>
+
+					<div class="form-group">
+						<label for="publishing">Опубликована:</label>
+						<select name="publishing" id="publishing" >
+							<option name='Да'>Да</option>
+							<option name='Нет'>Нет</option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+						<label for="ebook">Электронный вид</label>
+						<select name="ebook" id="ebook" >
+							<option name='Есть'>Есть</option>
+							<option name='Нет'>Нет</option>
+						</select>
+					</div>
+					
+					<div class="form-group">
+						<label for="year">Год написания:</label>
+						<input type="text" id="year" name="year" class="form-control" placeholder="Введите год написания книги, например 1854">
+					</div>
+					
+					<div class="form-group">
+						<label for="isbn">ISBN:</label>
+						<input type="text" id="isbn" name="isbn" class="form-control" placeholder="Введите уникальынй номер книги, например 2-266-11156">
+					</div>
+					
+					<div class="form-group">
+						<label for="pages">Кол-во страниц:</label>
+						<input type="text" id="pages" name="pages" class="form-control" placeholder="Введите количество страниц в книге, например 634">
+					</div>
+
+					<div class="form-group">
+						<label for="author">Автор</label>
+						<select name="author" id="author">
+							<option ng-repeat='author in authors'>{{author.firstName}} {{author.secondName}}</option>
+						</select>
+					</div>
+
+					<input type="submit" value="Добавить" class="btn btn-success">
+					
+				</form>
+				
+				
+			</section> 
+
+			<section id="view-book-section">
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th>ID</th>
+				      <th>Название</th>
+				      <th>Опубликована</th>
+				      <th>Ebook</th>
+				      <th>Год</th>
+				      <th>ISBN</th>
+				      <th>Количество страниц</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    
+				    <tr ng-repeat='book in books'>
+				      <td>{{book._id}}</td>
+				      <td>{{book.name}}</td>
+				      <td>{{book.publishing}}</td>
+				      <td>{{book.ebook}}</td>
+				      <td>{{book.year}}</td>
+				      <td>{{book.isbn}}</td>
+				      <td>{{book.pages}}</td>
+				    </tr>
+				    
+				  </tbody>
+				</table>
+			</section>
+		</div>
+
+
+
+		<div id="book-author-section">
+			
+				<table class="table table-striped">
+				  <thead>
+				    <tr>
+				      <th>Автор</th>
+				      <th>Книга</th>
+				    </tr>
+				  </thead>
+				  <tbody>
+				    
+				    <tr ng-repeat='book in books'>
+				      <td >{{book.author}}</td>
+				      <td >{{book.name}}</td>
+				    </tr>
+				     
+				  </tbody>
+				</table>
+			
+		</div>
+			
+		<footer>
+			<div id="left-footer">Навигация
+				<ul>
+					<a href="/"><li>Главная</li></a>	
+					<a href="#" ng-click="authorSS()"><li>Авторы</li></a>
+					<a href="#" ng-click="bookSS()"><li>Книги</li></a>
+				</ul>
+			</div>
+			<div id="right-footer">Об авторе
+				<span>Copyright 2017 | Разработал Pavlov Alexey</span>
+			</div>
+		</footer>
+		
+
+		<script src="code.js"></script>
+	</div>
+</body>
+</html>

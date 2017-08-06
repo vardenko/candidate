@@ -1,0 +1,128 @@
+/*-------------------------FONT--------------------------*/
+@font-face {
+    font-family: OswB; 
+    src: url("fonts/Oswald-Bold.ttf");
+   }
+ @font-face {
+    font-family: OswSB; 
+    src: url("fonts/Oswald-SemiBold.ttf");
+   }
+@font-face {
+    font-family: OswL; 
+    src: url("fonts/Oswald-Light.ttf");
+   }
+@font-face {
+    font-family: OswEL; 
+    src: url("fonts/Oswald-ExtraLight.ttf");
+   }
+@font-face {
+    font-family: OswM; 
+    src: url("fonts/Oswald-Medium.ttf");
+   }
+@font-face {
+    font-family: OswR; 
+    src: url("fonts/Oswald-Regular.ttf");
+   }
+
+/*-------------------------GENERAL--------------------------*/
+
+body, html {
+	margin: 0 auto;
+	padding: 0;
+	width: 1200px;
+}
+a {
+	text-decoration: none;
+	color: #000;
+}
+a:hover {
+	text-decoration: none !important;
+}
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+	font-family: OswSB;
+}
+header {
+	height: 100px;
+	background-color: #aaa;
+}
+header >h2 {
+	position: relative;
+	left: 150px;
+	top: -90px;
+	font-size: 46px !important;
+	padding: 0;
+}
+nav {
+	background-color: #778899;
+	font-family: OswB;
+}
+
+nav > ul> a> li {
+	display: inline-block;
+	padding: 10px 50px;
+	list-style: none;
+	color: #fff;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+nav > ul> a> li:hover {
+	color: #aaa;
+	
+}
+.logo {
+	display: inline-block;
+	margin: 10px;
+	width: 100px;
+	height: 76px;
+	background-image: url(img/library.png);
+}
+.form-control {
+	width: 30% !important;
+}
+#add-author-section, #add-book-section {
+	margin: 10px;
+}
+#view-author-section, #view-book-section {
+	display: none;
+}
+#author-section, #book-section {
+	margin: 10px;
+	display: none;
+	font-family: OswL;
+}
+#book-section {
+	display: none;
+	font-family: OswL;
+}
+#book-author-section {
+	margin: 10px;
+	font-family: OswL;
+}
+#main-section {
+	padding: 15px;
+	font-family: OswL; 
+}
+footer {
+	font-family: OswB;
+	color: #fff;
+	font-size: 24px;
+	height: 130px;
+	background-color: #aaa;
+	padding: 5px 115px;
+}
+#left-footer {
+	float: left;
+}
+#left-footer>ul {
+	font-family: OswM;
+	font-size: 16px;
+}
+#right-footer {
+	float: right;
+}
+#right-footer>span {
+	display: block;
+	font-family: OswL;
+	font-size: 14px;
+}
